@@ -1,0 +1,4 @@
+Contact: mailto:VOTRE-EMAIL@exemple.com
+Preferred-Languages: fr, en
+Canonical: https://YOUR-DOMAIN.example/.well-known/security.txt
+Policy: https://YOUR-DOMAIN.example/#contact

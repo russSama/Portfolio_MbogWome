@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --page: #0b1110;
+  --surface: #111a18;
+  --surface-soft: #15211d;
+  --text: #edf5f0;
+  --muted: #a4b4ac;
+  --border: #24312d;
+  --accent: #55e6a5;
+  --accent-contrast: #07130d;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --page: #f5f8f6;
+  --surface: #ffffff;
+  --surface-soft: #eaf3ed;
+  --text: #12211a;
+  --muted: #50645a;
+  --border: #d3e0d8;
+  --accent: #087c4b;
+  --accent-contrast: #ffffff;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 6rem;
+}
+
+body {
+  background: var(--page);
+  color: var(--text);
+  font-feature-settings: "ss01" on;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.surface {
+  background: var(--surface);
+}
+
+.surface-soft {
+  background: var(--surface-soft);
+}
+
+.surface-inset {
+  background: var(--page);
+}
+
+.site-header {
+  background: color-mix(in srgb, var(--page) 90%, transparent);
+}
+
+.text-muted {
+  color: var(--muted);
+}
+
+.border-line {
+  border-color: var(--border);
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.bg-accent {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.project-logo-plate {
+  background: #fff;
+}
+
+.grid-pattern {
+  background-image: linear-gradient(to right, var(--border) 1px, transparent 1px), linear-gradient(to bottom, var(--border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: linear-gradient(to bottom, black, transparent 85%);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 650ms ease, transform 650ms cubic-bezier(.2, .7, .2, 1);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.skill-meter > span {
+  display: block;
+  height: 100%;
+  width: var(--level);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 900ms cubic-bezier(.2, .7, .2, 1);
+}
+
+.level-90 { --level: 90%; }
+.level-85 { --level: 85%; }
+.level-75 { --level: 75%; }
+.level-70 { --level: 70%; }
+.level-45 { --level: 45%; }
+.level-40 { --level: 40%; }
+
+.is-visible .skill-meter > span {
+  transform: scaleX(1);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
